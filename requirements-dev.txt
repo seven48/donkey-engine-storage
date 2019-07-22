@@ -1,0 +1,2 @@
+-r requirements.txt
+wemake-python-styleguide==0.10.0
