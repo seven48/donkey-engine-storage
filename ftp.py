@@ -9,14 +9,14 @@ from pyftpdlib.servers import FTPServer
 DEFAULT_PORT = 2121
 DEFAULT_MAX_CONS = 256
 
-STORAGE_BANNER = os.getenv('STORAGE_BANNER') or 'Hello'
-STORAGE_HOST = os.getenv('STORAGE_HOST') or ''
-STORAGE_PORT = os.getenv('STORAGE_PORT') or DEFAULT_PORT
-STORAGE_MAX_CONS = os.getenv('STORAGE_MAX_CONS') or DEFAULT_MAX_CONS
-STORAGE_MAX_CONS_PER_IP = os.getenv('STORAGE_MAX_CONS_PER_IP') or 5
+STORAGE_BANNER: str = os.getenv('STORAGE_BANNER') or 'Hello'
+STORAGE_HOST: str = os.getenv('STORAGE_HOST') or ''
+STORAGE_PORT: int = int(os.getenv('STORAGE_PORT') or DEFAULT_PORT)
+STORAGE_MAX_CONS: int = int(os.getenv('STORAGE_MAX_CONS') or DEFAULT_MAX_CONS)
+STORAGE_MAX_CONS_PER_IP: int = int(os.getenv('STORAGE_MAX_CONS_PER_IP') or 5)
 
 
-def main():
+def main() -> None:
     """FTP runner."""
     authorizer = DummyAuthorizer()
     authorizer.add_anonymous('storage/')
