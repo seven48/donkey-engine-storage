@@ -19,7 +19,7 @@ STORAGE_MAX_CONS_PER_IP: int = int(os.getenv('STORAGE_MAX_CONS_PER_IP') or 5)
 def main() -> None:
     """FTP runner."""
     authorizer = DummyAuthorizer()
-    authorizer.add_anonymous('storage/')
+    authorizer.add_anonymous('storage/', perm='elradfmwMT')
 
     ftp_handler = FTPHandler
     ftp_handler.authorizer = authorizer
